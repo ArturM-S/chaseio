@@ -12,6 +12,7 @@ model chaseio {
   bairro            String
   celular           String?
   cep               String
+  cidade_exterior   String?
   cnae_fiscal       String
   cnae_secundario   String?
   cnpj              String
@@ -40,6 +41,10 @@ model chaseio {
   @@index([municipio], map: "municipio_1")
   @@index([bairro], map: "bairro_1")
   @@index([cep], map: "cep_1")
+}
+
+model chaseio_metrics {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
 }
 
 model messages {

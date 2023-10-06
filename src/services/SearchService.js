@@ -36,6 +36,7 @@ export class SearchService {
 
   findByStateCityCnae = async (state, city, cnae) => {
     const results = await this.chaseioRepository.findByStateCityCnae(state, city, cnae);
+    console.log(results);
     return results;
   }
 }

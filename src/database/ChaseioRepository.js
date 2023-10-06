@@ -103,8 +103,8 @@ export class ChaseioRepository extends MainRepository {
 
   async findByStateCityCnae(state, city, cnae) {
     const prisma = await this.getPrisma();
-
     try {
+      console.log(state, city, cnae);
       const result = await prisma.chaseio.findMany({
         where: {
           uf: { contains: state },
@@ -116,6 +116,7 @@ export class ChaseioRepository extends MainRepository {
 
       return (result);
     } catch (error) {
+      console.log(error);
       return error;
     }
   }

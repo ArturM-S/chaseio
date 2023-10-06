@@ -56,6 +56,10 @@ router.post('/login', (req, res) => {
   authController.login(req, res);
 });
 
+router.post('/searchByStateCityCnae', (req, res) => {
+  searchController.findByStateCityCnae(req, res);
+});
+
 router.get('/messages', (req, res) => botController.findAllMessages(req, res))
 
 router.get('/logout', (req, res) => authController.logout(req, res));
@@ -77,9 +81,7 @@ router.get('/', (req, res) => {
   searchController.fetchAll(req, res);
 });
 
-router.post('/searchByStateCityCnae', (req, res) => {
-  searchController.findByStateCityCnae(req, res);
-});
+
 
 
 
