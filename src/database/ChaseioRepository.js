@@ -101,6 +101,25 @@ export class ChaseioRepository extends MainRepository {
     }
   }
 
+  async findByStateCityCnae(state, city, cnae) {
+    const prisma = await this.getPrisma();
+
+    try {
+      const result = await prisma.chaseio.findMany({
+        where: {
+          uf: { contains: state },
+          municipio: { contains: city },
+          cnae_fiscal: { contains: cnae },
+        },
+        take: 50,
+      });
+
+      return (result);
+    } catch (error) {
+      return error;
+    }
+  }
+
 
   async setWasContacted(companieId) {
     const prisma = await this.getPrisma();

@@ -33,5 +33,18 @@ export class SearchController {
     }
   }
 
+async findByStateCityCnae(req, res) {
+    try {
+      const { state, city, cnae } = req.body;
 
+      const results = await this.searchService.findByStateCityCnae(state, city, cnae);
+
+      res.status(200).json({
+        results,
+      });
+    } catch (error) {
+      const errorHandler = ErrorHandler.internalServerError('Erro ao buscar resultados por UF, Município e CNAE');
+      res.status(errorHandler.statusCode).json({ error: errorHandler.message });
+    }
+  }
 }

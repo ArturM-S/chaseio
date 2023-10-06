@@ -77,6 +77,10 @@ router.get('/', (req, res) => {
   searchController.fetchAll(req, res);
 });
 
+router.post('/searchByStateCityCnae', (req, res) => {
+  searchController.findByStateCityCnae(req, res);
+});
+
 
 
 
